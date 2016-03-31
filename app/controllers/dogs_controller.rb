@@ -15,10 +15,12 @@ class DogsController < ApplicationController
   # GET /dogs/new
   def new
     @dog = Dog.new
+    @dog.custodies.build
   end
 
   # GET /dogs/1/edit
   def edit
+    @dogs.custodies.build
   end
 
   # POST /dogs

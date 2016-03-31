@@ -1,0 +1,17 @@
+<%= form_for(@custody) do |f| %>
+  <% if @custody.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@custody.errors.count, "error") %> prohibited this custody from being saved:</h2>
+
+      <ul>
+      <% @custody.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,32 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @dog.name %> <%= @dog.try(:last_name) %></h1>
+
+<p>
+  <strong>Owners:</strong>
+  <ul>
+    <% @dog.owners.each do |owner| %>
+      <li><%= owner.name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @dog.dob %>
+</p>
+
+<p>
+  <strong>Breed:</strong>
+  <%= @dog.breed.name %>
+</p>
+
+<p>
+  <strong>Medical Condition:</strong>
+  <%= @dog.medical.condition %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_dog_path(@dog) %> |
 <%= link_to 'Back', dogs_path %>

@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<div class="container">
+<%= link_to fa_icon("home", text:"Home"), root_path %>
+<%= link_to fa_icon("info", text:"About"), about_path %>
+<%= link_to "Dogs", dogs_path %>
+<p id="notice"><%= notice %></p>
+
 <%= yield %>
 
 </body>

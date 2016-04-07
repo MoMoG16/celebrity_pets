@@ -1,17 +1,22 @@
-<%= form_for(@dog) do |f| %>
-  <% if @dog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dog.errors.count, "error") %> prohibited this dog from being saved:</h2>
+<%= simple_form_for(@dog) do |f| %>
+  <% f.error_notification %>
 
-      <ul>
-      <% @dog.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <div class="form-inputs">
+      <%= f.input :name %>
+      <%= f.input :dob, start_year: Date.today.year - 25, end_year: Date.today.year, order: [:month, :day, :year] %>
+
+      <%= f.association :breed %>
+      <%= :medical_condition %>
+      <%= f.simple_fields_for(:custodies) do |custody_fields| %>
+        <%= custody_fields.association :owner, collection: Owner.order(:last_name, :first_name) %>
+        <% if custody_fields.object.persisted? %>
+          <%= custody_fields.input :_destroy, as: :boolean %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

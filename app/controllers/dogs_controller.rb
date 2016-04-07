@@ -14,8 +14,8 @@ class DogsController < ApplicationController
 
   # GET /dogs/new
   def new
-    @dog = Dog.new
-    @dog.custodies.build
+    @dog_name = Dog.new
+
   end
 
   # GET /dogs/1/edit

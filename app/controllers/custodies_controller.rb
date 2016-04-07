@@ -15,6 +15,7 @@ class CustodiesController < ApplicationController
   # GET /custodies/new
   def new
     @custody = Custody.new
+
   end
 
   # GET /custodies/1/edit

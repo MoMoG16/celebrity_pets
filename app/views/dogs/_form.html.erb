@@ -2,7 +2,7 @@
   <% f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :name %>
+      <%= f.input :dog_name %>
       <%= f.input :dob, start_year: Date.today.year - 25, end_year: Date.today.year, order: [:month, :day, :year] %>
 
       <%= f.association :breed %>

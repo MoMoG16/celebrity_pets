@@ -3,4 +3,8 @@ class Dog < ActiveRecord::Base
   has_many :custodies
   has_many :owners, :through => :custodies
 
+validates :name, :breed_id, :owner_id, :dob, presence: true
+
+
+
 end

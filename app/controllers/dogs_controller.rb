@@ -4,7 +4,19 @@ class DogsController < ApplicationController
   # GET /dogs
   # GET /dogs.json
   def index
-    @dogs = Dog.all
+    if params[:search]
+      @dogs = Dog.where("name LIKE ?", "%#{params[:search]}%")
+
+      if @dogs.size.zero?
+        flash[:alert] = "Sorry, no result found."
+        @dogs = Dog.all
+      end
+    elsif params[:breed_id]
+      @dogs = Dog.where(breed_id: params[:breed_id])
+
+    else
+      @dogs = Dog.all
+    end
   end
 
   # GET /dogs/1
@@ -14,13 +26,13 @@ class DogsController < ApplicationController
 
   # GET /dogs/new
   def new
-    @dog_name = Dog.new
+    @dog = Dog.new
 
   end
 
   # GET /dogs/1/edit
   def edit
-    @dogs.custodies.build
+
   end
 
   # POST /dogs

@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-class: "btn btn-primary"
 
 <p>
-  <strong>Owners:</strong>
-  <ul>
-    <% @dog.owners.each do |owner| %>
-      <li><%= owner.name %></li>
-    <% end %>
-  </ul>
+  <strong>First name:</strong>
+  <%= @owner.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @owner.last_name %>
 </p>
 
 <p>
@@ -27,6 +27,5 @@ class: "btn btn-primary"
 </p>
 
 
-
 <%= link_to 'Edit', edit_dog_path(@dog) %> |
-<%= link_to 'Back', dogs_path %>
+<%= link_to 'Back', dog_path %>

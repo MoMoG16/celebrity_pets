@@ -5,6 +5,8 @@ class Dog < ActiveRecord::Base
 
 validates :name, :breed_id, :owner_id, :dob, presence: true
 
-
+def last_comma_first
+    "#{last_name}, #{first_name}"
+  end
 
 end

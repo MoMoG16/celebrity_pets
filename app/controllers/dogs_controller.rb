@@ -40,14 +40,11 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
 
-    respond_to do |format|
-      if @dog.save
-        format.html { redirect_to @dog, notice: 'Dog was successfully created.' }
-        format.json { render :show, status: :created, location: @dog }
-      else
+respond_to do |format|
+
         format.html { render :new }
         format.json { render json: @dog.errors, status: :unprocessable_entity }
-      end
+
     end
   end
 
